@@ -3,10 +3,12 @@ import React from "react";
 function ProjectItem({ name, about, technologies }) {
   return (
     <div className="project-item">
-      <h3>{name}</h3>
-      <p>{about}</p>
+      {name && <h3>{name}</h3>} {/* Conditionally render name */}
+      {about && <p>{about}</p>} {/* Conditionally render about */}
       <div className="technologies">
-        {/* render a <span> for each technology in the technologies array */}
+        {technologies.map((technology, index) => (
+          <span key={index}>{technology}</span>
+        ))}
       </div>
     </div>
   );
